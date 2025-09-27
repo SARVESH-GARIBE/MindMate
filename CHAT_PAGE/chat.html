@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MindMate Chat</title>
+    <link rel="stylesheet" href="../LANDING_PAGE/styles.css" />
+    <link rel="stylesheet" href="chat.css" />
+
+    // animated robo
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#message-input">Skip to message input</a>
+
+    <div class="app" role="application" aria-label="MindMate chat application">
+        <aside class="sidebar" aria-label="Recent conversations">
+            <div class="sidebar-header">
+                <button id="toggle-conversations" class="btn btn-ghost" aria-expanded="false"
+                    aria-controls="conversation-list">Conversations</button>
+                <button id="new-conversation" class="btn" title="Start new conversation">New</button>
+            </div>
+            <ul id="conversation-list" class="conversation-list" role="listbox" aria-label="Conversation list">
+                <!-- Filled by JS with mock data and saved items -->
+            </ul>
+        </aside>
+
+        <main class="chat" aria-label="Active conversation">
+            <!-- Chatbot embed removed: use external link from landing page -->
+            <div class="bot-meta">
+                <div class="bot-name" aria-label="Assistant name">MindMate</div>
+                <div class="bot-sub">Always here to help</div>
+            </div>
+            <div class="chat-actions">
+                <button id="clear-conversation" class="btn btn-ghost" title="Clear current conversation">Clear</button>
+                <button id="delete-conversation" class="btn btn-ghost"
+                    title="Delete current conversation">Delete</button>
+                <button id="delete-all" class="btn btn-ghost" title="Delete all conversations">Delete All</button>
+                <button id="theme-toggle" class="btn btn-ghost" aria-pressed="false" title="Toggle theme"
+                    aria-label="Toggle theme">🌙</button>
+            </div>
+            </header>
+
+            <section id="messages" class="messages" aria-live="polite" aria-relevant="additions"
+                aria-label="Message history">
+                <!-- Messages will be appended here -->
+            </section>
+
+            <form id="composer" class="composer" autocomplete="off" aria-label="Send a message">
+                <label for="message-input" class="sr-only">Message</label>
+                <input id="message-input" name="message" type="text" inputmode="text" placeholder="Type your message"
+                    aria-required="true" />
+                <button id="audio-note" type="button" class="btn btn-ghost" title="Speak your message"
+                    aria-label="Speak your message">
+                    <!-- Simple mic icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 1a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V4a3 3 0 0 1 3-3z"></path>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                        <line x1="12" y1="19" x2="12" y2="23"></line>
+                        <line x1="8" y1="23" x2="16" y2="23"></line>
+                    </svg>
+                </button>
+                <button id="send" class="btn" type="submit" aria-label="Send message">Send</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="chat.js" defer></script>
+</body>
+
+</html>

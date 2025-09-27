@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Sign Up</title>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <style>
+    body {font-family: Arial, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #121212; color: #fff; transition: 0.3s;}
+    .container {background: #1e1e1e; padding: 2rem; border-radius: 10px; width: 320px; text-align: center;}
+    .container h2 {margin-bottom: 1rem;}
+    input {width: 100%; padding: 0.6rem; margin: 0.4rem 0; border: none; border-radius: 5px;}
+    button {width: 100%; padding: 0.7rem; margin-top: 0.6rem; border: none; border-radius: 5px; background: #6200ea; color: white; cursor: pointer;}
+    button:hover {background: #3700b3;}
+    .light-mode {background: #f5f5f5; color: #000;}
+    .light-mode .container {background: #fff; color: #000;}
+    #error-message {color: red; margin-top: 10px; display: none;}
+    #theme-toggle {margin-top: 10px; cursor: pointer; background: #03dac6; color: black; padding: 5px 10px; border-radius: 5px; display: inline-block;}
+    #logout-btn {margin-top: 15px; display: none; background: #ff5252;}
+    #logout-btn:hover {background: #d32f2f;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="form-title">Login</h2>
+
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <label><input type="checkbox" id="remember" /> Remember Me</label>
+      <button type="submit" id="auth-btn">Login</button>
+      <p id="toggle-form" style="cursor:pointer; color:#03dac6; margin-top:10px;">Don't have an account? Sign Up</p>
+      <p id="error-message"></p>
+    </form>
+
+    <div id="welcome-message" style="display:none; margin-top:20px;"></div>
+    <button id="logout-btn">Logout</button>
+    <div id="theme-toggle">Dark Mode</div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      toggle.textContent = body.classList.contains('light-mode') ? "Dark Mode" : "Light Mode";
+    });
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAKJyGyCLEmib3QRU-rynyzw3PchCuNkJI",
+      authDomain: "one-to-one-mentorship-platform.firebaseapp.com",
+      projectId: "one-to-one-mentorship-platform",
+      storageBucket: "one-to-one-mentorship-platform.firebasestorage.app",
+      messagingSenderId: "737163830707",
+      appId: "1:737163830707:web:b624c0c629549cd7cad7c6",
+      measurementId: "G-D7LY08176F"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    const form = document.getElementById('login-form');
+    const formTitle = document.getElementById('form-title');
+    const authBtn = document.getElementById('auth-btn');
+    const toggleForm = document.getElementById('toggle-form');
+    const errorMessage = document.getElementById('error-message');
+    const rememberCheckbox = document.getElementById('remember');
+    const welcomeMessage = document.getElementById('welcome-message');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    let isLogin = true;
+
+    toggleForm.addEventListener('click', () => {
+      isLogin = !isLogin;
+      formTitle.textContent = isLogin ? "Login" : "Sign Up";
+      authBtn.textContent = isLogin ? "Login" : "Sign Up";
+      toggleForm.textContent = isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login";
+      errorMessage.style.display = "none";
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = form.email.value;
+      const password = form.password.value;
+      const persistence = rememberCheckbox.checked 
+        ? firebase.auth.Auth.Persistence.LOCAL 
+        : firebase.auth.Auth.Persistence.SESSION;
+
+      auth.setPersistence(persistence).then(() => {
+        if (isLogin) {
+          return auth.signInWithEmailAndPassword(email, password);
+        } else {
+          return auth.createUserWithEmailAndPassword(email, password);
+        }
+      })
+      .then((userCredential) => {
+        errorMessage.style.display = "none";
+        form.reset();
+      })
+      .catch((error) => {
+        errorMessage.textContent = error.message;
+        errorMessage.style.display = "block";
+      });
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      auth.signOut();
+    });
+
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        form.style.display = "none";
+        logoutBtn.style.display = "block";
+        welcomeMessage.style.display = "block";
+        welcomeMessage.textContent = "Welcome, " + user.email;
+      } else {
+        form.style.display = "block";
+        logoutBtn.style.display = "none";
+        welcomeMessage.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

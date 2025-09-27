@@ -46,7 +46,8 @@ The project begins with simple but impactful features, while leaving space for f
 
 ### 📸 Screenshots
 **Homepage**  
-![Homepage](demo/homepage.png)
+![Homepage](demo/Landing page)
+![Homepage](demo/Landing page2)
 
 **Sign-Up Page**  
 ![Signup](demo/signup.png)

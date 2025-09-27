@@ -46,17 +46,41 @@ The project begins with simple but impactful features, while leaving space for f
 
 ### 📸 Screenshots
 **Homepage**  
-![Homepage](demo/Landing page)
-![Homepage](demo/Landing page2)
+![Homepage](demo/Landingpage.jpg)
+![Homepage](demo/Landingpage2.jpg)
 
-**Sign-Up Page**  
-![Signup](demo/signup.png)
+**Registration Page**
+![Registration](demo/RegistrationPage.jpg)
+![Registration](demo/RegistrationPage2.jpg)
+![Registration](demo/RegistrationPage(seeker).jpg)
+![Registration](demo/RegistrationPage(expert).jpg)
+![Registration](demo/RegistrationPage(expert2).jpg)
+
+**Login Page**
+![Loginpage](demo/Loginpage.jpg)
+![Loginpage](demo/Login2page.jpg)
+
 
 **Experts Page**  
-![Experts](demo/experts.png)
+![Experts](demo/Expertspage.jpg)
+![Experts](demo/Expertspage2.jpg)
+![Experts](demo/Expertspage(pricing).jpg)
 
 **Chat Feature**  
-![Chat](demo/chat.png)
+![Chat](demo/Chatpage.jpg)
+![Chat](demo/Chatpage2.jpg)
+
+**Calls-Booking Page**
+![Calls](demo/Callspage.jpg)
+![Calls](demo/Callspage(pricing).jpg)
+
+**Privacy-Policy Page**
+![Privacy](demo/Privacy.jpg)
+![Privacy](demo/Privacy2.jpg)
+
+**Dark-Mode**
+![darkmode](demo/Darkmode.jpg)
+![darkmode](demo/Darkmode2.jpg)
 
 ---
 

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MindMate Calls</title>
+    <link rel="stylesheet" href="../LANDING_PAGE/styles.css" />
+    <link rel="stylesheet" href="calls.css" />
+</head>
+
+<body>
+    <a class="skip-link" href="#start-audio">Skip to call actions</a>
+    <header class="topbar">
+        <div class="brand">MindMate</div>
+        <nav class="nav">
+            <a href="../LANDING_PAGE/index.html">Home</a>
+            <a href="../CHAT_PAGE/chat.html">Chat</a>
+            <a aria-current="page" href="#">Calls</a>
+        </nav>
+    </header>
+
+    <main class="container" aria-label="Calls and Pricing">
+        <section class="hero">
+            <h1>Connect with a professional</h1>
+            <p>Audio and video sessions. Secure. Simple. Coming soon via our call provider.</p>
+        </section>
+
+        <section class="call-options" aria-labelledby="call-options-title">
+            <h2 id="call-options-title">Call options</h2>
+            <div class="grid">
+                <article class="card">
+                    <div class="card-header">
+                        <div class="icon" aria-hidden="true">🎧</div>
+                        <h3>Audio Call</h3>
+                    </div>
+                    <p>Low bandwidth, private voice session.</p>
+                    <div class="actions">
+                        <button id="start-audio" class="btn">Start Audio Call</button>
+                        <button id="join-audio" class="btn btn-ghost">Join with link</button>
+                    </div>
+                    <p class="note">Note: This is a demo UI. No real calls yet.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">
+                        <div class="icon" aria-hidden="true">🎥</div>
+                        <h3>Video Call</h3>
+                    </div>
+                    <p>Face-to-face sessions with screen share support.</p>
+                    <div class="actions">
+                        <button id="start-video" class="btn">Start Video Call</button>
+                        <button id="join-video" class="btn btn-ghost">Join with link</button>
+                    </div>
+                    <p class="note">Note: This is a demo UI. No real calls yet.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="pricing" aria-labelledby="pricing-title">
+            <h2 id="pricing-title">Pricing</h2>
+            <div class="grid">
+                <article class="plan">
+                    <h3>Starter</h3>
+                    <p class="price"><span class="amount">₹149</span> <span class="period">/ session</span></p>
+                    <ul>
+                        <li>20-min audio call</li>
+                        <li>Basic support</li>
+                        <li>Email follow-up</li>
+                    </ul>
+                    <button class="btn btn-block">Choose Starter</button>
+                </article>
+                <article class="plan popular" aria-label="Popular Plan">
+                    <div class="badge">Popular</div>
+                    <h3>Standard</h3>
+                    <p class="price"><span class="amount">₹399</span> <span class="period">/ session</span></p>
+                    <ul>
+                        <li>45-min video or audio</li>
+                        <li>Priority scheduling</li>
+                        <li>Session notes</li>
+                    </ul>
+                    <button class="btn btn-block">Choose Standard</button>
+                </article>
+                <article class="plan">
+                    <h3>Pro</h3>
+                    <p class="price"><span class="amount">₹799</span> <span class="period">/ session</span></p>
+                    <ul>
+                        <li>60-min video</li>
+                        <li>Screen sharing</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                    <button class="btn btn-block">Choose Pro</button>
+                </article>
+            </div>
+            <p class="disclaimer"><strong>Not medical advice.</strong> For emergencies call local emergency services.
+            </p>
+        </section>
+
+        <section class="how-it-works" aria-labelledby="how-title">
+            <h2 id="how-title">How it will work</h2>
+            <ol>
+                <li>Select a plan and time.</li>
+                <li>Receive a secure room link.</li>
+                <li>Join via web (audio/video).</li>
+            </ol>
+            <p class="small">This prototype mocks call flows until integration is complete.</p>
+        </section>
+
+        <section class="recordings" aria-labelledby="recordings-title">
+            <h2 id="recordings-title">My recordings</h2>
+            <div class="actions" style="margin-bottom:12px">
+                <button id="load-recordings" class="btn btn-ghost">Load recordings</button>
+            </div>
+            <ul id="recordings-list" class="list"></ul>
+        </section>
+    </main>
+
+    <footer class="footer">© <span id="year"></span> MindMate</footer>
+
+    <!-- Preview Modal -->
+    <div id="call-modal" class="modal" hidden aria-hidden="true" role="dialog" aria-modal="true"
+        aria-label="Call preview">
+        <div class="modal-backdrop" data-close="true"></div>
+        <div class="modal-dialog" role="document">
+            <header class="modal-header">
+                <h3 class="modal-title">Session Preview</h3>
+                <button class="modal-close" data-close="true" aria-label="Close preview">×</button>
+            </header>
+            <div class="tiles">
+                <div class="tile">
+                    <div class="tile-label">You</div>
+                    <video id="local-video" autoplay playsinline muted></video>
+                </div>
+                <div class="tile dummy">
+                    <div class="tile-label">Expert (demo)</div>
+                    <div class="dummy-face" aria-hidden="true">🙂</div>
+                </div>
+            </div>
+            <footer class="modal-actions">
+                <button id="mute-audio" class="btn btn-ghost" aria-pressed="false">Mute</button>
+                <button id="toggle-video" class="btn btn-ghost" aria-pressed="false">Video Off</button>
+                <button id="end-preview" class="btn">End Preview</button>
+            </footer>
+        </div>
+    </div>
+
+    <script src="calls.js" defer></script>
+</body>
+<!--
+Integration notes:
+- TODO: Replace mock handlers in calls.js with your provider SDK (WebRTC, Twilio, Agora, etc.)
+- Ensure HTTPS and permissions for camera/mic.
+-->
+
+</html>

@@ -70,47 +70,38 @@ The project begins with simple but impactful features, while leaving space for f
 ## 📂 Project Structure
 
 MindMate/
-│
-│── LANDING_PAGE/ # Landing page + Privacy
-│ │── index.html
-│ │── privacy.html
-│ │── styles.css
-│ │── script.js
-│
-│── CHAT_PAGE/ # Chatbot feature
-│ │── chat.html
-│ │── chat.css
-│ │── chat.js
-│
-│── EXPERTS_PAGE/ # Expert profiles
-│ │── experts.html
-│ │── experts.css
-│ │── experts.js
-│
-│── CALLS_PAGE/ # Audio/Video call feature
-│ │── calls.html
-│ │── calls.css
-│ │── calls.js
-│
-│── REGISTRATION_PAGE/ # User registration
-│ │── register.html
-│ │── register.css
-│ │── register.js
-│
-│── LOGIN_PAGE/ # User login
-│ │── index.html
-│ │── login.css
-│ │── login.js
-│
-│── demo/ # Screenshots & demo recordings
-│ │── homepage.png
-│ │── signup.png
-│ │── experts.png
-│ │── chat.png
-│ │── demo.gif
-│
-│── README.md # Documentation
-
+├── LANDING_PAGE/          # Landing page + Privacy
+│   ├── index.html
+│   ├── privacy.html
+│   ├── styles.css
+│   └── script.js
+├── CHAT_PAGE/             # Chatbot feature
+│   ├── chat.html
+│   ├── chat.css
+│   └── chat.js
+├── EXPERTS_PAGE/          # Expert profiles
+│   ├── experts.html
+│   ├── experts.css
+│   └── experts.js
+├── CALLS_PAGE/            # Audio/Video call feature
+│   ├── calls.html
+│   ├── calls.css
+│   └── calls.js
+├── REGISTRATION_PAGE/     # User registration
+│   ├── register.html
+│   ├── register.css
+│   └── register.js
+├── LOGIN_PAGE/            # User login
+│   ├── login.html
+│   ├── login.css
+│   └── login.js
+├── demo/                  # Screenshots & demo recordings
+│   ├── homepage.png
+│   ├── signup.png
+│   ├── experts.png
+│   ├── chat.png
+│   └── demo.gif
+└── README.md              # Documentation
 ---
 
 ## 📦 Setup & Usage
